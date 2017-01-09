@@ -21,6 +21,7 @@ class C_admin extends CI_Controller {
                 $data['profil']     = $this->load->view('admin/profil',$data, true);
                 $data['header']     = $this->load->view('admin/header',$data, true);
                 $data['isi']        = $this->load->view('admin/isi', $data,true);
+                $data['head']        = $this->load->view('admin/head', $data,true);
 		
 		$this->load->view('admin/index', $data);
                 //$this->load->view('admin/menu',$data);
@@ -31,6 +32,35 @@ class C_admin extends CI_Controller {
                 echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
             }
 	}
+        public function pengguna() {
+            $cek  = $this->session->userdata('logged_in');
+            $stts = $this->session->userdata('stts');
+            if(!empty($cek) && $stts=="admin")
+            {
+                $data['pengguna']       = "User";
+		$data['username']       = $this->session->userdata('username');
+                $data['nama_lengkap']   = $this->session->userdata('nama_lengkap');
+                $data['act']= 1;
+                
+                $data['menu']       = $this->load->view('admin/menu',$data, true);
+                $data['profil']     = $this->load->view('admin/profil',$data, true);
+                $data['header']     = $this->load->view('admin/header',$data, true);
+                $data['head']       = $this->load->view('admin/head', $data,true); 
+                $data['script']       = $this->load->view('admin/script', $data,true); 
+		$data['isi_pengguna'] = $this->load->view('admin/isi_pengguna',$data, true);
+                
+		$this->load->view('admin/pengguna', $data);
+                //$this->load->view('admin/menu',$data);
+                
+            }
+            else
+            {
+                echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
+            }
+	}
+        public function test(){
+            $this->load->view('test');
+        }
 
 	public function logout() {
 		$this->session->unset_userdata('username');

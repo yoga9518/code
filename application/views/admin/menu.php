@@ -1,11 +1,11 @@
 <?php if($_SESSION['stts']=="admin"){?>
 <li <?php if($act==0){?>class="active"<?php }?>>
-    <a href="c_admin"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="label label-primary"></span></a>
+    <a href="<?php echo base_url();?>index.php/admin/c_admin"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="label label-primary"></span></a>
     
 </li>
 
 <li <?php if($act==1){?>class="active"<?php }?>>
-    <a href="pengguna"><i class="fa fa-diamond"></i> <span class="nav-label">Pengguna</span> <span class="label label-primary"></span></a>
+    <a href="<?php echo base_url();?>index.php/admin/c_admin/pengguna"><i class="fa fa-diamond"></i> <span class="nav-label">Pengguna</span> <span class="label label-primary"></span></a>
 </li>
 <?php }?>
 <li>
