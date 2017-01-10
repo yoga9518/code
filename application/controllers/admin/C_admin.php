@@ -8,7 +8,7 @@ class C_admin extends CI_Controller {
 		}
 		$this->load->helper('text');
 	}
-	public function index() {
+	public function indexc() {
             $cek  = $this->session->userdata('logged_in');
             $stts = $this->session->userdata('stts');
             if(!empty($cek) && $stts=="admin")
@@ -58,8 +58,66 @@ class C_admin extends CI_Controller {
                 echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
             }
 	}
-        public function test(){
-            $this->load->view('test');
+        public function index(){
+            $cek  = $this->session->userdata('logged_in');
+            $stts = $this->session->userdata('stts');
+            if(!empty($cek) && $stts="admin")
+            {
+                $data['pengguna']       = "user";
+                $data['username']       = $this->session->userdata('username');
+                $data['nama_lengkap']   = $this->session->userdata('nama_lengkap');
+                $data['act']            = 0;
+                
+                $data['navbar_header']  = $this->load->view('test/navbar_header',$data, true);
+                $data['menu']           = $this->load->view('test/menu',$data, true);
+                $data['isi']            = $this->load->view('test/isi',$data, true);
+                $data['judul']          = $this->load->view('test/judul', $data,true); 
+                $data['head']           = $this->load->view('test/head', $data,true); 
+		$data['script_bawah']   = $this->load->view('test/script_bawah',$data, true);
+                
+                $this->load->view('test',$data);
+            }
+            
+        }
+        public function blank(){
+            $cek  = $this->session->userdata('logged_in');
+            $stts = $this->session->userdata('stts');
+            if(!empty($cek) && $stts=="admin")
+            {
+                $data['pengguna']       = "User";
+		$data['username']       = $this->session->userdata('username');
+                $data['nama_lengkap']   = $this->session->userdata('nama_lengkap');
+                $data['act']= 1;
+                
+                $data['navbar_header']  = $this->load->view('test/navbar_header',$data, true);
+                $data['menu']           = $this->load->view('test/menu',$data, true);
+                $data['isi']            = $this->load->view('test/isi',$data, true);
+                $data['judul']          = $this->load->view('test/judul', $data,true); 
+                $data['head']           = $this->load->view('test/head', $data,true); 
+		$data['script_bawah']   = $this->load->view('test/script_bawah',$data, true);
+                
+                $this->load->view('blank',$data);
+        }
+        }
+        public function tabel(){
+            $cek  = $this->session->userdata('logged_in');
+            $stts = $this->session->userdata('stts');
+            if(!empty($cek) && $stts=="admin")
+            {
+                $data['tabel']          = 'Pengguna';
+		$data['username']       = $this->session->userdata('username');
+                $data['nama_lengkap']   = $this->session->userdata('nama_lengkap');
+                $data['act']= 2;
+                
+                $data['navbar_header']  = $this->load->view('test/navbar_header',$data, true);
+                $data['menu']           = $this->load->view('test/menu',$data, true);
+                $data['isi']            = $this->load->view('isi_tabel',$data, true);
+                $data['judul']          = $this->load->view('test/judul', $data,true); 
+                $data['head']           = $this->load->view('test/head', $data,true); 
+		$data['script_bawah']   = $this->load->view('test/script_bawah',$data, true);
+                
+                $this->load->view('blank',$data);
+        }
         }
 
 	public function logout() {

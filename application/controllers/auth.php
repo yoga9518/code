@@ -3,7 +3,7 @@
 class Auth extends CI_Controller {
     
 	public function index() {
-		$this->load->view('tampilan_login');
+		$this->load->view('login');
 	}
 	public function cek_login() {
 		$data = array('username' => $this->input->post('username', TRUE),
