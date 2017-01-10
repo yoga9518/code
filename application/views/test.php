@@ -1,3 +1,5 @@
+<?php if($_SESSION['stts']=="admin"){?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,3 +33,10 @@
 </body>
 
 </html>
+<?php } 
+else
+{
+    echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
+     //redirect('member/c_member');
+}
+?>

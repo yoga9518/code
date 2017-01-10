@@ -1,3 +1,4 @@
+<?php if($_SESSION['stts']=="admin"){?>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -149,3 +150,4 @@
     </div>
     <!-- /.container-fluid -->
 </div>
+<?php } ?>

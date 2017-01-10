@@ -1,3 +1,4 @@
+<?php if($_SESSION['stts']=="admin"){?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -939,3 +940,4 @@
 </body>
 
 </html>
+<?php } ?>

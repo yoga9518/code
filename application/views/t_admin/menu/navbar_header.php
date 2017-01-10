@@ -1,3 +1,4 @@
+<?php if($_SESSION['stts']=="admin"){?>
 <ul class="nav navbar-top-links navbar-right">
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -206,3 +207,4 @@
     </li>
     <!-- /.dropdown -->
 </ul>
+<?php } ?>

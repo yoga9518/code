@@ -1,4 +1,4 @@
-
+<?php if($_SESSION['stts']=="admin"){?>
     <!-- jQuery -->
     <script src="<?php echo base_url();?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -27,3 +27,4 @@
         });
     });
     </script>
+    <?php } ?>

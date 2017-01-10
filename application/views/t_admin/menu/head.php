@@ -1,3 +1,4 @@
+<?php if($_SESSION['stts']=="admin"){?>
 <head>
 
     <meta charset="utf-8">
@@ -34,3 +35,4 @@
     <![endif]-->
 
 </head>
+<?php } ?>
