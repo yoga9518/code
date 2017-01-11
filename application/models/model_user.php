@@ -9,10 +9,14 @@ class Model_user extends CI_Model {
         $query = $this->db->get_where('ys_login', $data);
         return $query;
     }
-    public function getAll($data)
-    {
+
+    public function getAll($data) {
         return $this->db->get($data);
-        
+    }
+
+    public function insertData($tabelName, $data) {
+        $res = $this->db->insert($tabelName, $data);
+        return $res;
     }
 
 }

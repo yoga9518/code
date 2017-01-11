@@ -19,8 +19,8 @@
             <li>
                 <a href="#"><i class="fa fa-pencil fa-fw"></i> Artikel<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#">New</a>
+                    <li <?php if($act==3){?>class="active"<?php } ?>>
+                        <a href="<?php echo base_url();?>index.php/admin/c_admin/new_article">New</a>
                     </li>
                     <li>
                         <a href="#">Daftar artikel</a>
