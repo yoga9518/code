@@ -91,8 +91,9 @@ class C_admin extends CI_Controller {
         $stts = $this->session->userdata('stts');
         if (!empty($cek) && $stts = "admin") {
             $data['judul_menu'] = 'Dashboard Sistem';
-            $data['username'] = $this->session->userdata('username');
-            $data['nama_lengkap'] = $this->session->userdata('nama_lengkap');
+            $data['username']       = $this->session->userdata('username');
+            $data['nama_lengkap']   = $this->session->userdata('nama_lengkap');
+            $data['password']       = $this->session->userdata('password');
             $data['act'] = 0;
 
             $data['navbar_header'] = $this->load->view('t_admin/menu/navbar_header', $data, true);
@@ -104,6 +105,7 @@ class C_admin extends CI_Controller {
 
             $this->load->view('t_admin', $data);
         } else {
+            
             echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
         }
     }
@@ -125,6 +127,10 @@ class C_admin extends CI_Controller {
             $data['script_bawah'] = $this->load->view('t_admin/menu/script_bawah', $data, true);
 
             $this->load->view('t_admin', $data);
+        }
+        else {
+            
+            echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
         }
     }
 
@@ -150,6 +156,10 @@ class C_admin extends CI_Controller {
             //$this->load->view('view_admin', $data);
             $this->load->view('t_admin', $data);
         }
+         else {
+            
+            echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
+        }
     }
 
     function tambah() {
@@ -166,6 +176,10 @@ class C_admin extends CI_Controller {
                     . '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
                     . '<span aria-hidden="true">&times;</span></button></div>');
             redirect('admin/c_admin/tabel');
+        }
+        else {
+            
+            echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
         }
     }
 
@@ -185,6 +199,10 @@ class C_admin extends CI_Controller {
                     . '<span aria-hidden="true">&times;</span></button></div>');
             redirect('admin/c_admin/tabel');
         }
+        else {
+            
+            echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
+        }
     }
 
     public function delete($id) {
@@ -196,6 +214,10 @@ class C_admin extends CI_Controller {
                     . '<span aria-hidden="true">&times;</span></button>'
                     . '</div>');
             redirect('admin/c_admin/tabel');
+        }
+        else {
+            
+            echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
         }
     }
 
@@ -216,6 +238,10 @@ class C_admin extends CI_Controller {
             $data['script_bawah'] = $this->load->view('t_admin/menu/script_bawah', $data, true);
 
             $this->load->view('t_admin', $data);
+        }
+        else {
+            
+            echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
         }
     }
 

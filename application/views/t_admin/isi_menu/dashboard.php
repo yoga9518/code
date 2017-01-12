@@ -101,4 +101,8 @@
     </div>
     <!-- /.container-fluid -->
 </div>
-<?php } ?>
+<?php } 
+else{
+     redirect("member/c_member");
+}
+    ?>
