@@ -12,7 +12,7 @@
                     <input type="text" class="form-control" placeholder="Username">
                 </div>
                 <div class="form-group">
-                    <label>Username</label>
+                    <label><?php echo $username;?></label>
                     <input class="form-control">
                 </div>
                 <div class="form-group">
