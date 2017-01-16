@@ -167,6 +167,28 @@ class C_admin extends CI_Controller {
             echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
         }
     }
+    public function article(){
+        $cek = $this->session->userdata('logged_in');
+        $stts = $this->session->userdata('stts');
+        if (!empty($cek) && $stts == "admin") {
+            $data['judul_menu'] = 'Daftar article';
+            $data['username'] = $this->session->userdata('username');
+            $data['nama_lengkap'] = $this->session->userdata('nama_lengkap');
+            $data['act'] = 4;
+
+            $data['navbar_header'] = $this->load->view('t_admin/menu/navbar_header', $data, true);
+            $data['menu'] = $this->load->view('t_admin/menu/menu', $data, true);
+            $data['isi'] = $this->load->view('t_admin/isi_menu/article', $data, true);
+            $data['judul'] = $this->load->view('t_admin/menu/judul', $data, true);
+            $data['head'] = $this->load->view('t_admin/menu/head', $data, true);
+            $data['script_bawah'] = $this->load->view('t_admin/menu/script_bawah', $data, true);
+
+            $this->load->view('t_admin', $data);
+        } else {
+
+            echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
+        }
+    }
 
     public function setting() {
         $cek = $this->session->userdata('logged_in');
