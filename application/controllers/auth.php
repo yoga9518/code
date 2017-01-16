@@ -18,6 +18,7 @@ class Auth extends CI_Controller {
 				$sess_data['username']      = $sess->username;
                                 $sess_data['password']      = $sess->password;
                                 $sess_data['nama_lengkap']  = $sess->nama_lengkap;
+                                $sess_data['waktu_daftar']  = $sess->waktu_daftar;
 				$sess_data['stts']          = $sess->stts;
 				$this->session->set_userdata($sess_data);
 			}

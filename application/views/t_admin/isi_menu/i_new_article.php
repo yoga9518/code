@@ -58,6 +58,37 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="panel panel-green">
+                                    <div class="panel-heading">
+                                        Green Panel
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>Ini nantinya akan di pakai untuk keperluan kita</p>
+                                    </div>
+                                    <div class="panel-footer">
+                                        Panel Footer
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="panel panel-green">
+                                    <div class="panel-heading">
+                                        Green Panel
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>Ini nantinya akan di pakai untuk keperluan kita</p>
+                                    </div>
+                                    <div class="panel-footer">
+                                        Panel Footer
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
