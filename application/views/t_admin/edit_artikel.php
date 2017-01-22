@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header"><?php echo $judul_menu; ?></h1>
+                    <h1 class="page-header"><?php echo $judul; ?></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -29,15 +29,16 @@
                             <div class="row">
 
                             </div>
+                            <?php foreach ($ys_berita as $br){ ?>
                             <form onsubmit=" return cekform();" action="<?php echo base_url() ?>index.php/admin/c_admin/simpan_artikel" method="post">
                                 <div class="col-md-8">
                                     <div class="form-group">
 
                                         <label>Judul</label>
-                                        <input class="form-control" id="judul" name="judul" type="text" size="80">
+                                        <input class="form-control" id="judul" name="judul" type="text" size="80" value="<?php echo $br->judul; ?>">
                                         <p></p>
                                         <label>Artikel</label>
-                                        <textarea id="editor1" name="editor1" rows="10" cols="80"></textarea>
+                                        <textarea id="editor1" name="editor1" rows="10" cols="80" ><?php echo $br->isi;?></textarea>
                                         <p></p>
                                         <input type="submit" name="posting" value="POSTING">
 
@@ -96,6 +97,7 @@
                                     </div>
                                 </div>
                             </form>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

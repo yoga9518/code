@@ -20,10 +20,13 @@
                 <a href="#"><i class="fa fa-pencil fa-fw"></i> Artikel<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li <?php if($act==3){?>class="active"<?php } ?>>
-                        <a href="<?php echo base_url();?>index.php/admin/c_admin/new_article">New</a>
+                        <a href="<?php echo base_url();?>index.php/admin/c_admin/new_artikel">New</a>
                     </li>
                     <li <?php if($act==4){?>class="active"<?php } ?>>
-                        <a href="<?php echo base_url();?>index.php/admin/c_admin/article">Daftar artikel</a>
+                        <a href="<?php echo base_url();?>index.php/admin/c_admin/artikel">Daftar artikel</a>
+                    </li>
+                    <li>
+                        <a href="#">Kategori</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

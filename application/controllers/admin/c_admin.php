@@ -145,7 +145,7 @@ class C_admin extends CI_Controller {
         }
     }
 
-    public function new_article() {
+    public function new_artikel() {
         $cek = $this->session->userdata('logged_in');
         $stts = $this->session->userdata('stts');
         if (!empty($cek) && $stts == "admin") {
@@ -167,7 +167,7 @@ class C_admin extends CI_Controller {
             echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
         }
     }
-    public function article(){
+    public function artikel(){
         $cek = $this->session->userdata('logged_in');
         $stts = $this->session->userdata('stts');
         if (!empty($cek) && $stts == "admin") {
@@ -175,10 +175,13 @@ class C_admin extends CI_Controller {
             $data['username'] = $this->session->userdata('username');
             $data['nama_lengkap'] = $this->session->userdata('nama_lengkap');
             $data['act'] = 4;
+            $dat = array(
+                'data'  => $this->model_user->getArtikel()
+            );
 
             $data['navbar_header'] = $this->load->view('t_admin/menu/navbar_header', $data, true);
             $data['menu'] = $this->load->view('t_admin/menu/menu', $data, true);
-            $data['isi'] = $this->load->view('t_admin/isi_menu/article', $data, true);
+            $data['isi'] = $this->load->view('t_admin/isi_menu/article', $dat, true);
             $data['judul'] = $this->load->view('t_admin/menu/judul', $data, true);
             $data['head'] = $this->load->view('t_admin/menu/head', $data, true);
             $data['script_bawah'] = $this->load->view('t_admin/menu/script_bawah', $data, true);
@@ -209,6 +212,9 @@ class C_admin extends CI_Controller {
             $data['script_bawah'] = $this->load->view('t_admin/menu/script_bawah', $data, true);
 
             $this->load->view('t_admin', $data);
+        }
+        else{
+            echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
         }
     }
         public function simpan_akun() {
@@ -271,6 +277,56 @@ class C_admin extends CI_Controller {
             $data['script_bawah']   = $this->load->view('t_admin/menu/script_bawah', $data, true);
 
             $this->load->view('t_admin', $data);
+        }
+        else{
+            echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
+        }
+    }
+    public function simpan_artikel()
+    {
+        $cek = $this->session->userdata('logged_in');
+        $stts = $this->session->userdata('stts');
+        if (!empty($cek) && $stts == "admin") {
+            $data = array(
+                'judul'         => $this->input->post('judul'),
+                'isi'           => $this->input->post('editor1'),
+                'stts'          => $this->input->post('stts'),
+                //'password'      => md5($this->input->post('username'))
+            );
+            $this->model_user->new_artikel($data);
+            //helper_log("add", "menambahkan data");
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan '
+                    . '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
+                    . '<span aria-hidden="true">&times;</span></button></div>');
+            redirect('admin/c_admin/artikel');
+        } else {
+
+            echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
+        }
+    }
+    public function edit_artikel($id)
+    {
+        $cek = $this->session->userdata('logged_in');
+        $stts = $this->session->userdata('stts');
+        if (!empty($cek) && $stts == "admin") {
+            $data['judul'] = 'Edit Artikel';
+            $data['username'] = $this->session->userdata('username');
+            $data['nama_lengkap'] = $this->session->userdata('nama_lengkap');
+            $data['act'] = 4;
+            $where = array('id' => $id);
+            $dat['ys_berita'] = $this->model_user->editArtikel($where,'ys_berita')->result();
+
+            $data['navbar_header'] = $this->load->view('t_admin/menu/navbar_header', $data, true);
+            $data['menu'] = $this->load->view('t_admin/menu/menu', $data, true);
+            $data['isi'] = $this->load->view('t_admin/edit_artikel', $dat, true);
+            $data['judul'] = $this->load->view('t_admin/menu/judul', $data, true);
+            $data['head'] = $this->load->view('t_admin/menu/head', $data, true);
+            $data['script_bawah'] = $this->load->view('t_admin/menu/script_bawah', $data, true);
+
+            $this->load->view('t_admin', $data);
+        } else {
+
+            echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
         }
     }
 

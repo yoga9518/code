@@ -77,7 +77,31 @@ class Model_user extends CI_Model {
         else
             return null;
     }
-
+    function getArtikel()
+    {
+        $query = $this->db->get('ys_berita');
+        return $query->result_array();
+    }
+    function new_artikel($data) {
+        $this->db->insert('ys_berita', $data);
+        return TRUE;
+    }
+    function tampilartikel() {
+        $this->db->where('stts','aktif');
+        $query = $this->db->get('ys_berita');        
+        return $query->result_array();
+    }
+    //pagination
+    function data($number,$offset){
+        return $query = $this->db->get('ys_login',$number,$offset)->result();
+        
+    }
+    function jumlah_data(){
+        return $this->db->get('ys_login')->num_rows();
+    }
+    public function editArtikel($where,$table){
+        return $this->db->get_where($table,$where);
+    }
 }
 
 ?>
